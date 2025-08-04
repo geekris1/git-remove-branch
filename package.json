@@ -17,7 +17,14 @@
     "cli",
     "interactive"
   ],
-  "author": "",
+  "author": "geekris",
+  "funding": "https://github.com/sponsors/geekris1",
+  "homepage": "https://github.com/geekris1/git-remove-branch#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/geekris1/git-remove-branch.git"
+  },
+  "bugs": "https://github.com/geekris1/git-remove-branch/issues",
   "license": "MIT",
   "dependencies": {
     "prompts": "^2.4.2"
