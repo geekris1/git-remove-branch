@@ -1,10 +1,10 @@
 {
-  "name": "git-remote-branch",
+  "name": "git-remove-branch",
   "version": "1.0.1",
   "description": "A command line tool for managing git branches interactively",
   "main": "index.js",
   "bin": {
-    "git-remote-branch": "./index.js",
+    "git-remove-branch": "./index.js",
     "grb": "./index.js"
   },
   "scripts": {

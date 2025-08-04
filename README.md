@@ -1,4 +1,4 @@
-# git-remote-branch
+# git-remove-branch
 
 一个交互式的 Git 分支管理命令行工具，支持删除本地和远程分支。
 
@@ -18,13 +18,13 @@
 ### 全局安装
 
 ```bash
-npm install -g git-remote-branch
+npm install -g git-remove-branch
 ```
 
 ### 本地安装
 
 ```bash
-npm install git-remote-branch
+npm install git-remove-branch
 ```
 
 ## 使用方法
@@ -33,7 +33,7 @@ npm install git-remote-branch
 
 ```bash
 # 使用完整命令名
-git-remote-branch
+git-remove-branch
 
 # 使用简写命令
 grb
@@ -42,19 +42,19 @@ grb
 ### 使用 npx（无需安装）
 
 ```bash
-npx git-remote-branch
+npx git-remove-branch
 ```
 
 ### 直接指定分支类型
 
 ```bash
 # 直接管理本地分支
-git-remote-branch local
+git-remove-branch local
 grb local
 
 # 直接管理远程分支
-git-remote-branch remote
-grb remote
+git-remove-branch remove
+grb remove
 ```
 
 ## 使用流程
