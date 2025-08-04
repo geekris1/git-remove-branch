@@ -28,12 +28,33 @@ function getLocalBranches() {
 }
 
 // 获取远程分支列表
-function getRemoteBranches() {
+function getRemoteBranches(verbose = false) {
   try {
+    // 先获取远程分支的最新信息并清理已删除的远程分支引用
+    execSync('git fetch --prune', { stdio: 'pipe' });
+
+    // 获取实际存在的远程分支
     const output = execSync('git branch -r --format="%(refname:short)"', { encoding: 'utf8' });
-    return output.trim().split('\n')
+    const branches = output.trim().split('\n')
       .filter(branch => branch.length > 0 && !branch.includes('HEAD'))
       .map(branch => branch.replace('origin/', ''));
+
+    // 进一步验证分支是否真的存在于远程
+    const validBranches = [];
+    for (const branch of branches) {
+      try {
+        // 检查远程分支是否真的存在
+        execSync(`git ls-remote --heads origin ${branch}`, { stdio: 'pipe' });
+        validBranches.push(branch);
+      } catch (error) {
+        // 如果分支不存在，跳过
+        if (verbose) {
+          console.log(`⚠️  跳过已删除的远程分支: ${branch}`);
+        }
+      }
+    }
+
+    return validBranches;
   } catch (error) {
     console.error('获取远程分支失败:', error.message);
     return [];
@@ -81,7 +102,7 @@ async function main() {
     branches = getLocalBranches();
   } else if (args.includes('remote')) {
     branchType = 'remote';
-    branches = getRemoteBranches();
+    branches = getRemoteBranches(true); // 显示详细信息
   } else {
     // 交互式选择分支类型
     const response = await prompts({
@@ -107,7 +128,7 @@ async function main() {
     if (branchType === 'local') {
       branches = getLocalBranches();
     } else {
-      branches = getRemoteBranches();
+      branches = getRemoteBranches(false); // 交互模式下不显示详细信息
     }
   }
 
