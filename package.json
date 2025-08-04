@@ -1,0 +1,27 @@
+{
+  "name": "git-remote-branch",
+  "version": "1.0.0",
+  "description": "A command line tool for managing git branches interactively",
+  "main": "index.js",
+  "bin": {
+    "git-remote-branch": "./index.js",
+    "grb": "./index.js"
+  },
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [
+    "git",
+    "branch",
+    "cli",
+    "interactive"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "prompts": "^2.4.2"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
