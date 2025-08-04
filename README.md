@@ -41,11 +41,7 @@ grb
 ### 使用 npx（无需安装）
 
 ```bash
-# 使用完整命令名
 npx git-remote-branch
-
-# 使用简写命令
-npx grb
 ```
 
 ### 直接指定分支类型
